@@ -1,0 +1,19 @@
+<h1>Demo application with Signals</h1>
+<h2>Use of set / update and effects</h2>
+<div>count: {{ count() }}</div>
+<div>doubleCount: {{ doubleCount() }}</div>
+<button (click)="onClick()">Click</button>
+<button (click)="onReset()">Reset</button>
+<div><i>Open the console to see effects.</i></div>
+<hr />
+<h2>Use of update</h2>
+<ul>
+  <li *ngFor="let todo of todos()">
+    {{ todo.name }}: <span *ngIf="todo.done; else notdone">X</span
+    ><ng-template #notdone
+      ><button (click)="onTodo(todo.id)">OK</button></ng-template
+    >
+  </li>
+</ul>
+<button (click)="onResetTodos()">Reset</button>
+<hr />
